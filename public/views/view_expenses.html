@@ -1,0 +1,77 @@
+<!DOCTYPE.html>
+<html>
+    <head>
+        <link rel="stylesheet" href = "/public/css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>
+            VIEW EXPENSES
+        </title>
+        <header>
+            <img src = '/public/css/images/expense tracker logo.jpg'class="imgcenter" alt="LOGO" width="200px" height="200px">
+        
+            <ul>
+            <h3>EXPENSES</h3>
+        </header>
+        <nav>
+            <ul>
+            
+                
+                <li><a href ="index.html">HOME</a> </li>
+            </ul>
+        </nav> 
+        <body>
+          <h3>EXPENSES</h3>
+          <table id="expense-table">
+            <thead>
+                <tr>
+               <tr>
+                <th>ID</th>
+                <th>expensename</th>
+                <th>amount</th>
+                <th>date</th>
+               </tr>  
+            </thead>
+            <tbody>
+                 
+            </tbody>
+          </table>
+          <script>
+document.addEventListener('DOMContent-Loaded',()=>{
+    const expenseTablebody = document.querySelector('#expense-table tbody')
+    fetchExpenses();
+    function fetchExpenses(){
+        fetch('/api/view/expenses')
+        .then(response=> response.json())
+        .then(data=>{
+            data.forEach(expense => addExpenseToTable(expense));
+                
+            })
+            .catch(error=> console.error('error fetching expenses:',error));
+        }
+        function addExpenseToTable(expense){
+            const row = document.createElement('tr');
+            row.innerHTML =`
+               <td>${expense.id}</td>
+               <td>${expense.expensename}</td>
+                <td>${expense.amount}</td>
+                <td>${expense.date}</td>
+            `;
+            expenseTablebody.appendChild(row);
+        }
+        })
+    
+
+          </script>
+        </body>
+        <footer>
+            Copyright(C):2024
+            <br>
+            Developed By Prince Magasa
+            <br>
+            Connect with the developer
+    
+        </footer>
+    
+    </head>
+</html>

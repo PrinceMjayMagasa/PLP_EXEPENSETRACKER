@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href = "/public/css/style.css">
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>
+            Login
+        </title>
+        <header>
+            <img src = '/public/css/images/expense tracker logo.jpg' class="imgcenter" alt="LOGO" width="200px" height="200px">
+        
+            <h3>
+                LOGIN
+            </h3>
+        </header>
+        <nav>
+            <ul>
+            
+                
+                <li><a href ="index.html">HOME</a> </li>
+            </ul>
+        </nav> 
+    </head>
+    <body>
+        <div  id="loginForm">
+        <form id="loginForm">
+            <label for = "userEmail">Email</label>
+            <input type ="useremail" id ="useremail" name="useremail">  
+            <br>
+            <label for = "password">Password</label>
+            <input type ="password" id ="password" name="password"> 
+            <br>
+            <input type="submit" value="LOGIN">
+        </form>
+        <p id="mesg"></p>
+        <br>
+        
+        
+        </div>
+        <p class="parlogin">Dont have an Account?<br>
+            <a href ="register.html">Register</a> 
+        </p>
+      <script>
+        
+    const Form = document.getElementById("loginForm");
+
+Form.addEventListener('submit', function (event){
+    event.preventDefault();
+
+    
+    
+    const useremail = document.getElementById('useremail').value;
+    const password = document.getElementById('password').value;
+
+    
+    fetch("/api/user/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({useremail, password })
+        })
+
+        .then(response => response.json())
+        .then(data=>{
+            if (data.success){
+                alert('Login Successful');
+                registerForm.reset();
+
+            }else{
+                alert(data.message||"Invalid username or password")
+            }
+        })
+        .catch(error=>
+            console.error('ERROR:',error)
+        );
+    });
+      </script>
+    </body>
+    </form>
+    <footer>
+        Copyright(C):2024
+        <br>
+        Developed By Prince Magasa
+        <br>
+        Connect with the developer
+
+    </footer>
+</html>

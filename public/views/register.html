@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href = "/public/css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>
+            REGISTER
+        </title>
+    </head>
+        
+    
+    <body>
+        
+        <header>
+            <img src = '/public/css/images/expense tracker logo.jpg' class="imgcenter" alt="LOGO" width="200px" height="200px">
+        
+            <h3>CREATE AN ACCOUNT</h3>
+            <br>
+        </header>
+        <nav>
+            <ul>
+            
+                
+                <li><a href ="index.html">HOME</a> </li>
+            </ul>
+        </nav> 
+
+        <div >
+        <form id="reg">
+            <label for ="fullname">Enter Your Name</label>
+            <input type ="text" id ="fullname" name="fullname">
+            <label for= "userEmail">Enter Your Email</label>
+            <input type ="email" id ="useremail" name="useremail">  
+            <br>
+            <label for= "password">Enter Password</label>
+            <input type ="password" id ="password" name="password">
+            <br>
+            <input type="submit" value="REGISTER">
+            <br>  
+            
+        </form>
+        <br>
+    
+        
+        </div>
+        <script>
+            
+    const registerForm = document.getElementById("reg");
+
+registerForm.addEventListener('submit', function (event){
+    event.preventDefault();
+
+    
+    const fullname = document.getElementById('fullname').value;
+    const useremail = document.getElementById('useremail').value;
+    const password = document.getElementById('password').value;
+
+    
+    fetch("/api/user/registration", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ fullname, useremail, password })
+        })
+
+        .then(response => response.json())
+        .then(data=>{
+            if (data.success){
+                alert('Registration Successful');
+                registerForm.reset();
+
+            }else{
+                alert(data.message||"failed to register")
+            }
+        })
+        .catch(error=>
+            console.error('ERROR:',error)
+        );
+    });
+        </script>
+    </body>
+    <br>
+    <footer>
+        Copyright(C):2024
+        <br>
+        Developed By Prince Magasa
+        <br>
+        Connect with the developer
+
+    </footer>
+    <footer>
+        Copyright(C):2024
+        <br>
+        Developed By Prince Magasa
+        <br>
+        Connect with the developer
+
+    </footer>
+
+</html>

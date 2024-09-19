@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href ="/public/css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>
+            ADD EXPENSES
+        </title>
+        <header>
+            <img src = '/public/css/images/expense tracker logo.jpg'class="imgcenter" alt="LOGO" width="200px" height="200px">
+        
+            <h3>ADD EXPENSE</h3>
+        </header>
+        <nav>
+            <ul>
+            
+                
+                <li><a href ="index.html">HOME</a> </li>
+            </ul>
+        </nav> 
+            
+        
+    </head>
+    <body>
+        <form id="addExpform">
+            
+            <label for ="expensename">Expense Name</label>
+            <input type ="text" id ="expensename" name="expensename">  
+            <br>
+            <label for="amount"> Amount</label>
+            <input type ="number" id ="amount" name="amount"> 
+            <br>
+            <label for="date">Date</label>
+            <input type="date" id ="date" name="date">
+            <br>
+            <input type="submit" value = "ADD EXPENSE">
+        </form>
+        <script>
+        
+            const Form = document.getElementById("addExpform");
+        
+            Form.addEventListener('submit', function (event){
+            event.preventDefault();
+        
+            
+            
+            const expensename = document.getElementById('expensename').value;
+            const amount= document.getElementById('amount').value;
+            const date = document.getElementById('date').value;
+            
+            fetch("/api/add/expenses", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({expensename, amount,date })
+                })
+        
+                .then(response => response.json())
+                .then(data=>{
+                    if (data.success){
+                        alert('Expense added sucessfully');
+                        Form.reset();
+        
+                    }else{
+                        alert(data.message||"Error adding expense")
+                    }
+                })
+                //.catch(error=>
+                //    console.error('ERROR:',error)
+                //);
+            });
+              </script>
+        
+    </body>
+    <footer>
+        Copyright(C):2024
+        <br>
+        Developed By Prince Magasa
+        <br>
+        Connect with the developer
+
+    </footer>
+
+</html>

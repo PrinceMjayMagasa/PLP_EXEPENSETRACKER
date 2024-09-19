@@ -1,0 +1,195 @@
+header{
+    font-family:Arial;
+    font-size: 14px;
+    color :white;
+     text-align:center;
+    padding: 50px;
+    margin:0 auto;
+    width:30%;
+    
+
+}
+nav{
+    color: rgba(12, 7, 56, 0.39);
+    font-style:italic;
+    font-weight: 500;
+
+}
+nav a {
+    color:black;
+    font-size: 15px;
+    display:block;
+    
+
+}
+nav a:hover{
+    color:gray;
+} 
+h3 {
+    color: rgb(7, 43, 44);
+    font-weight: bolder;
+    
+    text-align: center;
+
+    
+
+}
+form{
+    width: 100%;
+    margin:50px;
+    padding:35px;
+    background-color: rgb(160, 198, 199);
+    border: solid;
+    border-color: rgb(0, 68, 255);
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+}
+form label{
+    padding:10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: medium;
+    color: black;
+}
+form input{
+    width:60%;
+    margin-top:2px;
+    border:1px solid;
+    font-size: small;
+    color: rgb(36, 36, 34);
+    display: flex;
+    flex-direction:rowFH;
+}
+form input[type ="submit"]{
+    width: 30%;
+    padding: 2px;
+    margin-top:15px;
+    font-weight:bold;
+    border: 2px solid;
+    text-align: center;
+    background-color:rgba(174, 191, 199, 0.747) ;
+    font-size: 15px;
+
+}
+form input[type ="submit"]:hover{
+    color:gray;
+}
+.parabout{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    ;
+    font-size: large;
+    color:white;
+    text-align: center;
+    
+    
+    
+    margin-bottom: 10px;
+    margin-top: 2px; 
+    padding:50px;
+    background-color:rgba(43, 62, 97, 0.575);
+    width: 100%;
+     
+    
+
+}
+    
+    .imgcenter{
+        display: block;
+        margin-left: 50%;
+        margin-right: 50%;
+        border-radius: 50%;
+        
+        
+    }
+
+
+.totalExpForm{
+    padding :30px;
+    text-align: center;
+    color: rgba(2, 85, 238, 0.575);
+    
+    font-size:20px;
+    border:solid;
+}
+button{
+
+    font-size: 12px;
+    font-family:Arial, Helvetica, sans-serif ;
+    font-weight:bold;
+    text-align:center ;
+  background-color:rgba(174, 191, 199, 0.747);
+  margin-top: 50px;
+  margin-left: 60px;
+  padding: 15px;
+  border:solid;
+  border-color:rgba(2, 85, 238, 0.575);
+text-shadow: 5px;}
+button:hover{
+    color:gray ;
+}
+
+a{
+    color:rgb(121, 192, 204);
+    text-decoration: none;
+}
+a:hover{
+    color:gray;
+}
+
+
+
+ 
+  
+
+
+.main{
+    margin-top: 1px;
+
+    background-color: rgba(17, 17, 170, 0.116);
+ padding: 30px;
+}
+
+
+body {
+    background-color: white;
+    background-image: url('/public/css/images/expense\ tracker\ pic.jpg');
+
+
+}
+footer{
+    margin-top:150px;
+    background-color:rgba(43, 62, 97, 0.575);
+    color:white;
+    border-top: solid;
+    border-color:rgba(2, 85, 238, 0.575) ;
+}
+.regForm{
+    
+     margin-top: 0px;
+     text-align: center;
+     border: solid;
+     
+}
+.divReg{
+    background-color: rgba(93, 116, 114, 0.616)
+    ;
+    padding: 10px;
+
+    margin-top: 100px; 
+color: beige;
+font-family: Arial, Helvetica, sans-serif;
+
+}
+.divLog{
+    background-color: rgba(93, 116, 114, 0.616)
+    ;
+    padding: 10px;
+
+    margin-top: 100px; 
+color: beige;
+font-family: Arial, Helvetica, sans-serif;
+
+}
+.parlogin{
+    color:rgb(61, 61, 58);
+    margin-top: 80px;
+}
